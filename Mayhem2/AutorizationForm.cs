@@ -11,8 +11,40 @@ namespace Mayhem2
         public AutorizationForm()
         {
             InitializeComponent();
+            this.Resize += (s, e) => this.Invalidate();
             this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            typeof(Form).InvokeMember("DoubleBuffered", System.Reflection.BindingFlags.SetProperty | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic,
+                null, this, new object[] { true });
         }
+
+        //
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            var g = e.Graphics;
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+            g.Clear(Color.White);
+
+            Point[] corner =
+            {
+                new Point(0, ClientSize.Height),
+                new Point(0, ClientSize.Height - 260),
+                new Point(260, ClientSize.Height)
+            };
+            using (var blackbrush = new SolidBrush(Color.Black))
+            {
+                g.FillPolygon(blackbrush, corner);
+            }
+
+            using (var pen = new Pen(Color.Black, 2))
+            {
+                g.DrawLine(pen,
+                    ClientSize.Width - 180, 0,
+                    ClientSize.Width, 180);
+            }
+        }
+        //
 
         private void cuiTextBox2_ContentChanged(object sender, EventArgs e)
         {

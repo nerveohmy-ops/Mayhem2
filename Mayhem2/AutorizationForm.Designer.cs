@@ -34,6 +34,7 @@
             cuiButton1 = new HartUI.Controls.cuiButton();
             cuiButton2 = new HartUI.Controls.cuiButton();
             errorProvider1 = new ErrorProvider(components);
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
@@ -41,6 +42,7 @@
             // 
             cuiTextBox1.Anchor = AnchorStyles.None;
             cuiTextBox1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            cuiTextBox1.BackColor = Color.White;
             cuiTextBox1.BackgroundColor = Color.White;
             cuiTextBox1.Content = "";
             cuiTextBox1.FocusBackgroundColor = Color.White;
@@ -73,6 +75,7 @@
             // 
             cuiTextBox2.Anchor = AnchorStyles.None;
             cuiTextBox2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            cuiTextBox2.BackColor = Color.White;
             cuiTextBox2.BackgroundColor = Color.White;
             cuiTextBox2.Content = "";
             cuiTextBox2.FocusBackgroundColor = Color.White;
@@ -104,6 +107,7 @@
             // cuiButton1
             // 
             cuiButton1.Anchor = AnchorStyles.None;
+            cuiButton1.BackColor = Color.White;
             cuiButton1.CheckButton = false;
             cuiButton1.Checked = false;
             cuiButton1.CheckedBackground = Color.FromArgb(61, 24, 226);
@@ -112,7 +116,7 @@
             cuiButton1.CheckedOutline = Color.Black;
             cuiButton1.Content = "Вход";
             cuiButton1.DialogResult = DialogResult.None;
-            cuiButton1.Font = new Font("Microsoft Sans Serif", 9.75F);
+            cuiButton1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             cuiButton1.ForeColor = Color.Black;
             cuiButton1.HoverBackground = Color.White;
             cuiButton1.HoverForeColor = Color.DimGray;
@@ -143,6 +147,7 @@
             // cuiButton2
             // 
             cuiButton2.Anchor = AnchorStyles.None;
+            cuiButton2.BackColor = Color.White;
             cuiButton2.CheckButton = false;
             cuiButton2.Checked = false;
             cuiButton2.CheckedBackground = Color.FromArgb(61, 24, 226);
@@ -151,7 +156,7 @@
             cuiButton2.CheckedOutline = Color.Black;
             cuiButton2.Content = "Регистрация";
             cuiButton2.DialogResult = DialogResult.None;
-            cuiButton2.Font = new Font("Microsoft Sans Serif", 9.75F);
+            cuiButton2.Font = new Font("Segoe UI", 12F);
             cuiButton2.ForeColor = Color.White;
             cuiButton2.HoverBackground = Color.White;
             cuiButton2.HoverForeColor = Color.DimGray;
@@ -183,20 +188,35 @@
             // 
             errorProvider1.ContainerControl = this;
             // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.None;
+            label1.AutoSize = true;
+            label1.BackColor = Color.White;
+            label1.Font = new Font("Arial Rounded MT Bold", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(412, 86);
+            label1.Name = "label1";
+            label1.Size = new Size(160, 32);
+            label1.TabIndex = 4;
+            label1.Text = "EstateFlow";
+            // 
             // AutorizationForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(984, 461);
+            Controls.Add(label1);
             Controls.Add(cuiButton2);
             Controls.Add(cuiButton1);
             Controls.Add(cuiTextBox2);
             Controls.Add(cuiTextBox1);
+            DoubleBuffered = true;
             Name = "AutorizationForm";
-            Text = "Form1";
+            Text = "Аутентификация";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -206,5 +226,6 @@
         private HartUI.Controls.cuiButton cuiButton1;
         private HartUI.Controls.cuiButton cuiButton2;
         private ErrorProvider errorProvider1;
+        private Label label1;
     }
 }
